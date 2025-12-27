@@ -1,0 +1,12 @@
+# Sanal ortamı yükleme
+venv/
+__pycache__/
+
+# Büyük veri ve model dosyalarını yükleme (Gerekirse sadece json'ı yükle)
+*.pkl
+*.csv
+archive/
+
+# Gereksiz sistem dosyaları
+.DS_Store
+.vscode/
