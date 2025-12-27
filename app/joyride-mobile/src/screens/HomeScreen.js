@@ -1,15 +1,33 @@
-
-import React, { useState } from 'react';
+// src/screens/HomeScreen.js
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, TextInput } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { generateSmartRoutes } from '../utils/mockBackend'; // Algoritmayı içe aktardık
+// MockBackend'den yeni fonksiyonu da çağırıyoruz: getStationData
+import { generateSmartRoutes, getStationData } from '../utils/mockBackend'; 
 
-export default function HomeScreen({ navigation }) {
-  const [selectedStation, setSelectedStation] = useState("Yenikapı");
-  const [density, setDensity] = useState(92);
+function HomeScreen({ navigation }) {
+  const [fromStation, setFromStation] = useState("Yenikapı");
+  const [toStation, setToStation] = useState(""); 
+  
+  // Ekranda gösterilecek dinamik veriler
+  const [displayData, setDisplayData] = useState({
+    density: 92,
+    status: "AŞIRI YOĞUN",
+    lines: ["M1", "M2", "Marmaray"]
+  });
+
+  // Kullanıcı durak ismini değiştirdiğinde veritabanından bilgileri çek
+  useEffect(() => {
+    const data = getStationData(fromStation);
+    setDisplayData({
+        density: data.density,
+        status: data.status,
+        lines: data.lines
+    });
+  }, [fromStation]); // fromStation her değiştiğinde çalışır
 
   const handleFindRoute = () => {
-    const suggestedRoutes = generateSmartRoutes(selectedStation, density);
+    const suggestedRoutes = generateSmartRoutes(fromStation, toStation);
     navigation.navigate('RouteSuggestions', { routes: suggestedRoutes });
   };
 
@@ -18,53 +36,65 @@ export default function HomeScreen({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.appName}>JoyRide</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-           <Ionicons name="person-circle-outline" size={36} color="white" />
+           <Ionicons name="person-circle-outline" size={40} color="white" />
         </TouchableOpacity>
       </View>
 
-      <View style={styles.searchBar}>
-        <TextInput 
-          value={selectedStation}
-          style={styles.searchInput}
-          onChangeText={setSelectedStation}
-          placeholder="Durak Ara..."
-          placeholderTextColor="#94a3b8"
-        />
-        <View style={{backgroundColor:'#3b82f6', padding:8, borderRadius:8}}>
-            <Ionicons name="search" size={20} color="white" />
+      <View style={styles.plannerCard}>
+        <Text style={styles.plannerTitle}>Yolculuk Planla 📍</Text>
+        
+        <View style={styles.inputRow}>
+            <Ionicons name="navigate-circle" size={24} color="#3b82f6" />
+            <TextInput 
+                value={fromStation}
+                style={styles.input}
+                onChangeText={setFromStation} // Yazdıkça veriler güncellenecek
+                placeholder="Başlangıç (Örn: Yenikapı)"
+                placeholderTextColor="#64748b"
+            />
+        </View>
+        <View style={{height:1, backgroundColor:'#334155', marginVertical:10, marginLeft:34}} />
+        <View style={styles.inputRow}>
+            <Ionicons name="flag" size={24} color="#ef4444" />
+            <TextInput 
+                value={toStation}
+                style={styles.input}
+                onChangeText={setToStation}
+                placeholder="Nereye? (Örn: Söğütlüçeşme)"
+                placeholderTextColor="#64748b"
+            />
         </View>
       </View>
 
-      <View style={[styles.densityCard, { backgroundColor: density > 80 ? '#b91c1c' : '#15803d' }]}>
-        <Text style={styles.stationName}>{selectedStation}</Text>
-        <Text style={styles.lineName}>M2 Hattı</Text>
-        <Text style={styles.bigNumber}>%{density}</Text>
-        <Text style={styles.densityLabel}>{density > 80 ? 'AŞIRI YOĞUN' : 'NORMAL'}</Text>
-        {density > 80 && (
+      {/* --- AKILLI YOĞUNLUK KARTI --- */}
+      <View style={[styles.densityCard, { backgroundColor: displayData.density > 80 ? '#b91c1c' : '#15803d' }]}>
+        <Text style={styles.stationName}>{fromStation}</Text>
+        
+        {/* Hat Bilgilerini Göster (M2, Marmaray vb.) */}
+        <View style={{flexDirection:'row', marginVertical:10}}>
+            {displayData.lines.map((line, i) => (
+                <View key={i} style={{backgroundColor:'rgba(0,0,0,0.3)', paddingHorizontal:8, paddingVertical:4, borderRadius:5, marginRight:5}}>
+                    <Text style={{color:'white', fontWeight:'bold', fontSize:12}}>{line}</Text>
+                </View>
+            ))}
+        </View>
+
+        <Text style={styles.bigNumber}>%{displayData.density}</Text>
+        <Text style={styles.densityLabel}>{displayData.status}</Text>
+        
+        {displayData.density > 80 && (
             <View style={styles.warningBox}>
-            <Ionicons name="warning" size={20} color="white" />
-            <Text style={styles.warningText}>Yoğunluk yüksek! Alternatif rota önerilir.</Text>
+                <Ionicons name="alert-circle" size={20} color="white" />
+                <Text style={styles.warningText}>Yoğunluk çok yüksek! Alternatif rotaları kontrol et.</Text>
             </View>
         )}
       </View>
 
       <TouchableOpacity style={styles.routeButton} onPress={handleFindRoute}>
-        <Text style={styles.routeButtonText}>Alternatif Rota Bul 🚀</Text>
+        <Text style={styles.routeButtonText}>En Mantıklı Rotayı Bul 🚀</Text>
       </TouchableOpacity>
 
-      <Text style={styles.sectionTitle}>Yakındaki İstasyonlar</Text>
-      
-      <TouchableOpacity 
-        style={styles.listItem}
-        onPress={() => navigation.navigate('Detail', { stationName: 'Zincirlikuyu', density: 88 })}
-      >
-        <View style={styles.iconBox}><Ionicons name="bus" size={24} color="white" /></View>
-        <View style={{flex:1, marginLeft: 10}}>
-            <Text style={styles.listTitle}>Zincirlikuyu</Text>
-            <Text style={styles.listSub}>Metrobüs</Text>
-        </View>
-        <Text style={[styles.listPercent, {color: '#ef4444'}]}>%88</Text>
-      </TouchableOpacity>
+      {/* Diğer kısımlar aynı... */}
     </ScrollView>
   );
 }
@@ -73,21 +103,19 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#0f172a', padding: 20 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 40, marginBottom: 20 },
   appName: { fontSize: 28, fontWeight: 'bold', color: 'white' },
-  searchBar: { flexDirection: 'row', backgroundColor: '#1e293b', padding: 8, borderRadius: 12, marginBottom: 20, alignItems:'center' },
-  searchInput: { color: 'white', marginLeft: 10, flex: 1, fontSize: 16, padding:5 },
-  densityCard: { borderRadius: 24, padding: 30, alignItems: 'center', marginBottom: 20 },
-  stationName: { color: 'white', fontSize: 26, fontWeight: 'bold', textAlign:'center' },
-  lineName: { color: 'rgba(255,255,255,0.8)', fontSize: 16, marginBottom: 10 },
-  bigNumber: { color: 'white', fontSize: 72, fontWeight: 'bold' },
-  densityLabel: { color: 'white', fontSize: 14, letterSpacing: 2, marginBottom: 20, fontWeight:'bold' },
-  warningBox: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.2)', padding: 10, borderRadius: 8, alignItems: 'center', width:'100%' },
+  plannerCard: { backgroundColor: '#1e293b', padding: 15, borderRadius: 16, marginBottom: 20 },
+  plannerTitle: { color:'#94a3b8', fontSize:12, marginBottom:10, fontWeight:'bold', textTransform:'uppercase' },
+  inputRow: { flexDirection: 'row', alignItems: 'center' },
+  input: { color: 'white', marginLeft: 10, flex: 1, fontSize: 16, padding: 5 },
+  densityCard: { borderRadius: 24, padding: 25, alignItems: 'center', marginBottom: 20 },
+  stationName: { color: 'white', fontSize: 28, fontWeight: 'bold' },
+  statusText: { color: 'rgba(255,255,255,0.7)', fontSize: 14, marginBottom: 5 },
+  bigNumber: { color: 'white', fontSize: 64, fontWeight: 'bold' },
+  densityLabel: { color: 'white', fontSize: 16, letterSpacing: 1, fontWeight:'bold', marginBottom:15 },
+  warningBox: { flexDirection: 'row', backgroundColor: 'rgba(0,0,0,0.2)', padding: 10, borderRadius: 8, alignItems: 'center' },
   warningText: { color: 'white', marginLeft: 10, fontSize: 12, flex: 1 },
-  sectionTitle: { color: 'white', fontSize: 18, fontWeight: 'bold', marginBottom: 15 },
-  listItem: { flexDirection: 'row', backgroundColor: '#1e293b', padding: 16, borderRadius: 16, marginBottom: 12, alignItems: 'center' },
-  iconBox: { width: 40, height: 40, backgroundColor: '#334155', borderRadius: 20, justifyContent: 'center', alignItems: 'center' },
-  listTitle: { color: 'white', fontWeight: 'bold', fontSize: 16 },
-  listSub: { color: '#94a3b8', fontSize: 12 },
-  listPercent: { fontWeight: 'bold', fontSize: 16 },
-  routeButton: { backgroundColor: '#3b82f6', padding: 16, borderRadius: 12, alignItems: 'center', marginBottom: 20 },
+  routeButton: { backgroundColor: '#3b82f6', padding: 16, borderRadius: 12, alignItems: 'center', marginBottom: 30 },
   routeButtonText: { color: 'white', fontWeight: 'bold', fontSize: 16 },
 });
+
+export default HomeScreen;
