@@ -4,6 +4,7 @@ const stationData = [
       "location_name": "Yenikapı Metro İstasyonu",
       "type": "metro",
       "line": "M2",
+      "coordinates": [41.0038, 28.9521],
       "scenario_time": "Pazartesi 08:00",
       "metrics": {
         "predicted_density": 92,
@@ -28,6 +29,7 @@ const stationData = [
       "location_name": "Zincirlikuyu Metrobüs",
       "type": "metrobus",
       "line": "34AS",
+      "coordinates": [41.0665, 29.0177],
       "scenario_time": "Cuma 19:00 (Konser)",
       "metrics": {
         "predicted_density": 88,
@@ -52,6 +54,7 @@ const stationData = [
       "location_name": "Altunizade",
       "type": "metrobus",
       "line": "34G",
+      "coordinates": [41.0224, 29.0395],
       "scenario_time": "Pazartesi 10:00",
       "metrics": {
         "predicted_density": 45,
