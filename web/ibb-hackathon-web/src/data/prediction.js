@@ -5,7 +5,7 @@ const stationData = [
       "type": "metro",
       "line": "M2",
       "coordinates": [41.0038, 28.9521],
-      "scenario_time": "Pazartesi 08:00",
+      "scenario_time": "Pazartesi 08:00 (M2 Metro Arızası)",
       "metrics": {
         "predicted_density": 92,
         "current_capacity": 1200,

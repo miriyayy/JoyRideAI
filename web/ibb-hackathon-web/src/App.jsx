@@ -5,6 +5,7 @@ import { Train, Bus, Clock } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import stationData from './data/prediction.js'
 import './App.css'
+import logo from './assets/joyride-logo.png'
 
 // Component to handle map view updates when station is selected
 function MapController({ center, zoom }) {
@@ -162,12 +163,22 @@ function App() {
       {/* Top Navbar */}
       <div className="absolute top-0 left-0 right-0 z-50 h-16 bg-slate-900/80 backdrop-blur-md shadow-2xl border-b border-white/10">
         <div className="flex items-center justify-between px-8 h-full">
-          <div>
-            <h1 className="text-xl font-bold text-white tracking-tight">
-              İBB Akıllı Şehir Operasyon Merkezi
-            </h1>
-            <p className="text-xs text-white/70 mt-0.5">Real-time Transportation Management System</p>
+          <div className="flex items-center gap-4">
+            {/* JoyRide Logo */}
+            <img 
+              src={logo} 
+              alt="JoyRide Logo" 
+              className="h-10 w-auto object-contain drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" 
+            />
+            {/* Title Section */}
+            <div>
+              <h1 className="text-xl font-bold text-white tracking-tight">
+                İBB Akıllı Şehir Operasyon Merkezi
+              </h1>
+              <p className="text-xs text-white/70 mt-0.5">Gerçek Zamanlı Ulaşım Yönetim Sistemi</p>
+            </div>
           </div>
+          
           <div className="flex items-center gap-4 bg-white/5 rounded-lg px-4 py-2 border border-white/10">
             <Clock className="w-4 h-4 text-white/80" />
             <div className="text-right">
@@ -181,8 +192,8 @@ function App() {
       {/* Left Sidebar */}
       <div className="absolute top-20 left-4 bottom-4 w-80 z-40 bg-slate-900/80 backdrop-blur-md shadow-2xl rounded-xl border border-white/10 overflow-y-auto">
         <div className="p-6 border-b border-white/10 sticky top-0 bg-slate-900/80 backdrop-blur-md z-10">
-          <h2 className="text-lg font-semibold text-white mb-1">Stations</h2>
-          <p className="text-sm text-white/60">{stationData.length} active locations</p>
+          <h2 className="text-lg font-semibold text-white mb-1">İstasyon</h2>
+          <p className="text-sm text-white/60">{stationData.length} Aktif İstasyon </p>
         </div>
         
         <div className="p-4 space-y-3">
@@ -269,15 +280,15 @@ function App() {
               <h3 className="text-sm font-semibold text-white/80 uppercase tracking-wider mb-3">Metrics</h3>
               <div className="space-y-3">
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors">
-                  <p className="text-xs text-white/60 mb-1">Current Capacity</p>
+                  <p className="text-xs text-white/60 mb-1">Mevcut Kapasite</p>
                   <p className="text-2xl font-bold text-white">{selectedStation.metrics.current_capacity.toLocaleString()}</p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors">
-                  <p className="text-xs text-white/60 mb-1">Passenger Count</p>
+                  <p className="text-xs text-white/60 mb-1">Yolcu Sayısı</p>
                   <p className="text-2xl font-bold text-white">{selectedStation.metrics.passenger_count.toLocaleString()}</p>
                 </div>
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4 hover:bg-white/10 transition-colors">
-                  <p className="text-xs text-white/60 mb-1">Predicted Density</p>
+                  <p className="text-xs text-white/60 mb-1">Tahmini Yoğunluk</p>
                   <p className="text-2xl font-bold text-white">{selectedStation.metrics.predicted_density}%</p>
                 </div>
               </div>
@@ -285,7 +296,7 @@ function App() {
 
             {/* Chart Section */}
             <div className="mb-6 bg-white/5 border border-white/10 rounded-xl p-4">
-              <h3 className="text-sm font-semibold text-white mb-4">Hourly Forecast</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Saatlik Tahmin</h3>
               <ResponsiveContainer width="100%" height={200}>
                 <LineChart data={selectedStation.hourly_forecast}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#ffffff20" />
@@ -321,7 +332,7 @@ function App() {
 
             {/* AI Decision Support Center */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-4">
-              <h3 className="text-sm font-semibold text-white mb-4">AI Decision Support</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Yapay Zekâ Karar Destek Sistemi</h3>
               {selectedStation.web_view.action_required && (
                 <div className={`border-2 rounded-xl p-4 ${getAlertBoxStyle(selectedStation)} shadow-lg`}>
                   <div className="mb-3">
@@ -345,7 +356,7 @@ function App() {
               )}
               {!selectedStation.web_view.action_required && (
                 <div className="border-2 border-green-500/50 bg-green-500/10 rounded-xl p-4 shadow-lg shadow-green-500/20">
-                  <p className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wider">Status: Normal</p>
+                  <p className="text-xs font-semibold text-green-400 mb-2 uppercase tracking-wider">Durum: Normal</p>
                   <p className="text-sm text-white/80">{selectedStation.web_view.suggestion}</p>
                 </div>
               )}
