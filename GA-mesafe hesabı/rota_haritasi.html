@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e3708eb12b2cf5e453e4257174d2099f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_e3708eb12b2cf5e453e4257174d2099f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e3708eb12b2cf5e453e4257174d2099f = L.map(
+                "map_e3708eb12b2cf5e453e4257174d2099f",
+                {
+                    center: [40.9917168827583, 29.021731384099],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 13,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8e09d84960ca083379b94613522870f5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8e09d84960ca083379b94613522870f5.addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var marker_25f7525a4aad73e2357fcfa4d1c52720 = L.marker(
+                [40.9917168827583, 29.021731384099],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_e4fe9fd6556e090995a8ecaffdb64d78 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2ced329afbc7fa13cf433121afca5098 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_47c3af35f8154716faac7d0ba9755980 = $(`<div id="html_47c3af35f8154716faac7d0ba9755980" style="width: 100.0%; height: 100.0%;">Kadıköy-Beşiktaş-Adalar ŞH.</div>`)[0];
+                popup_2ced329afbc7fa13cf433121afca5098.setContent(html_47c3af35f8154716faac7d0ba9755980);
+            
+        
+
+        marker_25f7525a4aad73e2357fcfa4d1c52720.bindPopup(popup_2ced329afbc7fa13cf433121afca5098)
+        ;
+
+        
+    
+    
+            marker_25f7525a4aad73e2357fcfa4d1c52720.bindTooltip(
+                `<div>
+                     1. Kadıköy-Beşiktaş-Adalar ŞH.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_25f7525a4aad73e2357fcfa4d1c52720.setIcon(icon_e4fe9fd6556e090995a8ecaffdb64d78);
+            
+    
+            var marker_8b5cceb2e79b1a4f0fd06adea4ee0aa8 = L.marker(
+                [40.9917168827583, 29.021731384099],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_acd6197db19b121dc973a968cd2cf5c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da8997faffbe82b4cb77a7b87d2833b6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e2075457d4a724d5ffcf68996ed2310e = $(`<div id="html_e2075457d4a724d5ffcf68996ed2310e" style="width: 100.0%; height: 100.0%;">Kadıköy-Beşiktaş-Adalar ŞH.</div>`)[0];
+                popup_da8997faffbe82b4cb77a7b87d2833b6.setContent(html_e2075457d4a724d5ffcf68996ed2310e);
+            
+        
+
+        marker_8b5cceb2e79b1a4f0fd06adea4ee0aa8.bindPopup(popup_da8997faffbe82b4cb77a7b87d2833b6)
+        ;
+
+        
+    
+    
+            marker_8b5cceb2e79b1a4f0fd06adea4ee0aa8.bindTooltip(
+                `<div>
+                     2. Kadıköy-Beşiktaş-Adalar ŞH.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8b5cceb2e79b1a4f0fd06adea4ee0aa8.setIcon(icon_acd6197db19b121dc973a968cd2cf5c0);
+            
+    
+            var marker_2e44de50d498a501d1917fa3b32e9830 = L.marker(
+                [41.0367093597346, 28.9868020056073],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_c75db85ca1cdc7d5f5010c635bf64161 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_98eb90eba4186c237d59df97ce95b2a2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_df722492dfa5440e273ec6141e3e2e9d = $(`<div id="html_df722492dfa5440e273ec6141e3e2e9d" style="width: 100.0%; height: 100.0%;">Taksim</div>`)[0];
+                popup_98eb90eba4186c237d59df97ce95b2a2.setContent(html_df722492dfa5440e273ec6141e3e2e9d);
+            
+        
+
+        marker_2e44de50d498a501d1917fa3b32e9830.bindPopup(popup_98eb90eba4186c237d59df97ce95b2a2)
+        ;
+
+        
+    
+    
+            marker_2e44de50d498a501d1917fa3b32e9830.bindTooltip(
+                `<div>
+                     3. Taksim
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e44de50d498a501d1917fa3b32e9830.setIcon(icon_c75db85ca1cdc7d5f5010c635bf64161);
+            
+    
+            var marker_fa927e393d0e25ffa227063acb7bca31 = L.marker(
+                [41.0179947226792, 28.9740817118888],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_75b5c0ffc6ff24c0f73544727a52cc7a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1756ec7d7c407d9b5de37a8d7c405765 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_24c4b034ca8a8e495ca8290f7b2c0c75 = $(`<div id="html_24c4b034ca8a8e495ca8290f7b2c0c75" style="width: 100.0%; height: 100.0%;">Eminönü-Boğaz ŞH.</div>`)[0];
+                popup_1756ec7d7c407d9b5de37a8d7c405765.setContent(html_24c4b034ca8a8e495ca8290f7b2c0c75);
+            
+        
+
+        marker_fa927e393d0e25ffa227063acb7bca31.bindPopup(popup_1756ec7d7c407d9b5de37a8d7c405765)
+        ;
+
+        
+    
+    
+            marker_fa927e393d0e25ffa227063acb7bca31.bindTooltip(
+                `<div>
+                     4. Eminönü-Boğaz ŞH.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fa927e393d0e25ffa227063acb7bca31.setIcon(icon_75b5c0ffc6ff24c0f73544727a52cc7a);
+            
+    
+            var marker_f73bbf5ac3424d079471accc9bb3d793 = L.marker(
+                [41.0080807903255, 28.9756364422636],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_d8d6da8cdac75c0ecfac487a8cacb7ca = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b34bfa1755e1d3f7c2a9ddad7ee9bdfa = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00457ea47c74503a65658ad2f24f4ac8 = $(`<div id="html_00457ea47c74503a65658ad2f24f4ac8" style="width: 100.0%; height: 100.0%;">Sultanahmet</div>`)[0];
+                popup_b34bfa1755e1d3f7c2a9ddad7ee9bdfa.setContent(html_00457ea47c74503a65658ad2f24f4ac8);
+            
+        
+
+        marker_f73bbf5ac3424d079471accc9bb3d793.bindPopup(popup_b34bfa1755e1d3f7c2a9ddad7ee9bdfa)
+        ;
+
+        
+    
+    
+            marker_f73bbf5ac3424d079471accc9bb3d793.bindTooltip(
+                `<div>
+                     5. Sultanahmet
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f73bbf5ac3424d079471accc9bb3d793.setIcon(icon_d8d6da8cdac75c0ecfac487a8cacb7ca);
+            
+    
+            var marker_0d1adb6b4279d1f9f293263381aaca25 = L.marker(
+                [41.0410405054671, 29.0073618373518],
+                {
+}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+    
+            var icon_f47c0a350148677aa6a17cd2ebe5fe5c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_340ea14607289daa4eca53f50c632433 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_113c55bd9862759aa721ab3869a98982 = $(`<div id="html_113c55bd9862759aa721ab3869a98982" style="width: 100.0%; height: 100.0%;">Beşiktaş-Üsküdar ŞH.</div>`)[0];
+                popup_340ea14607289daa4eca53f50c632433.setContent(html_113c55bd9862759aa721ab3869a98982);
+            
+        
+
+        marker_0d1adb6b4279d1f9f293263381aaca25.bindPopup(popup_340ea14607289daa4eca53f50c632433)
+        ;
+
+        
+    
+    
+            marker_0d1adb6b4279d1f9f293263381aaca25.bindTooltip(
+                `<div>
+                     6. Beşiktaş-Üsküdar ŞH.
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d1adb6b4279d1f9f293263381aaca25.setIcon(icon_f47c0a350148677aa6a17cd2ebe5fe5c);
+            
+    
+            var poly_line_d66d05fd54de02cc87a6cc5813d2d27a = L.polyline(
+                [[40.9917168827583, 29.021731384099], [40.9917168827583, 29.021731384099], [41.0080807903255, 28.9756364422636], [41.0179947226792, 28.9740817118888], [41.0367093597346, 28.9868020056073], [41.0410405054671, 29.0073618373518], [40.9917168827583, 29.021731384099]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_e3708eb12b2cf5e453e4257174d2099f);
+        
+</script>
+</html>
