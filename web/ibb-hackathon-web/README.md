@@ -1,16 +1,122 @@
-# React + Vite
+# 🚀 JoyRide Web – Gerçek Zamanlı Ulaşım Kontrol Merkezi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**JoyRide Web**, İstanbul’un yoğun toplu taşıma altyapısı için geliştirilmiş,  
+**Gerçek Zamanlı Ulaşım Yönetim Sistemi** ve **Yapay Zekâ Karar Destek Platformu**dur.
 
-Currently, two official plugins are available:
+Bu web uygulaması; operatörlerin istasyon yoğunluklarını izlemesini, saatlik tahminleri analiz etmesini ve kritik durumlarda **AI destekli optimizasyon kararları** almasını sağlar.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📺 Proje Demosu
+Aşağıdaki video, JoyRide ekosisteminin (Web) nasıl entegre çalıştığını ve operatör panelinin kullanımını göstermektedir:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<div align="center">
+  <video src="src/assets/demo.mp4" width="100%" controls>
+    Tarayıcınız video etiketini desteklemiyor.
+  </video>
+</div>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Projenin Amacı
+
+Metropol şehirlerde ulaşım yönetimi yalnızca sefer planlaması değil, **yoğunluk, stres ve zaman optimizasyonu** problemidir.  
+JoyRide Web bu probleme şu çözümleri sunar:
+
+- **Gerçek Zamanlı İzleme**  
+  İstasyon bazlı yolcu yoğunluğu, kapasite ve doluluk oranlarını anlık olarak gösterir.
+
+- **Tahmine Dayalı Analiz (Predictive Analytics)**  
+  Saatlik tahminler (Hourly Forecast) ile yoğunluk artışları önceden öngörülür.
+
+- **Yapay Zekâ Karar Destek Sistemi**  
+  Kritik durumlarda operatöre otomatik çözüm önerileri sunar.
+
+---
+
+## 🖥️ Web Kontrol Merkezi Özellikleri
+
+### 📊 Yoğunluk & Kapasite Paneli
+- **Mevcut Kapasite**
+- **Yolcu Sayısı**
+- **Tahmini Yoğunluk (%)**
+- Durum bazlı uyarılar (**Normal / Warning / Critical**)
+
+### 🧠 AI Decision Support
+Kritik yoğunluk algılandığında sistem şu aksiyonları önerir:
+
+- Sefer aralığını **4 dk → 2 dk** düşürme
+- Hat bazlı yük dengeleme
+- Operatör onayıyla **AI Optimization** uygulama
+
+✓ Optimizasyon uygulandığında sistem durumu otomatik günceller.
+
+### 🗺️ Harita Tabanlı İzleme
+- **Leaflet** ile karanlık tema (Dark Mode)
+- İstasyonlar koordinat bazlı canlı harita üzerinde gösterilir
+- Yoğunluğa göre renk kodlaması
+
+### 📈 Saatlik Tahminler
+- **Recharts** ile Hourly Forecast grafikleri
+- Geçmiş veriye dayalı yoğunluk projeksiyonları
+
+---
+
+## 📸 Uygulama Ekran Görüntüsü
+
+| Web Operasyon Merkezi |
+| --- |
+| ![](assets/screen_web.png) |
+| Gerçek zamanlı harita, saatlik tahminler ve AI optimizasyon paneli |
+
+---
+
+## 🧠 Teknik Mimari
+
+### 🔹 Veri Katmanı
+- Simüle edilmiş istasyon yoğunluk verileri
+- Kapasite, yolcu sayısı ve doluluk oranı hesaplamaları
+
+### 🔹 Karar Mekanizması
+- Eşik tabanlı yoğunluk analizi
+- Kritik durumda AI öneri üretimi
+- Operatör tetiklemeli optimizasyon
+
+### 🔹 Görselleştirme
+- Harita + Grafik + Panel senkronizasyonu
+- Gerçek zamanlı durum güncellemeleri
+
+---
+
+## 🛠️ Teknolojik Stack
+
+- **Frontend:** React.js, Vite
+- **Harita:** Leaflet
+- **Grafikler:** Recharts
+- **UI:** Tailwind CSS
+- **AI & Logic:** JavaScript tabanlı simülasyon katmanı
+
+---
+
+## 📂 Proje Yapısı
+
+```text
+ibb-hackathon-web/
+├── src/
+│   ├── assets/        # Logo ve görseller
+│   ├── data/          # İstasyon ve tahmin verileri
+│   ├── components/    # Harita, grafik ve paneller
+│   └── App.jsx        # Ana kontrol merkezi
+│
+├── assets/
+│   └── screen_web.png # Web ekran görüntüsü
+│
+└── demo.mp4           # Proje demo videosu
+
+
+🚀 Kurulum ve Çalıştırma
+bash
+Kodu kopyala
+npm install
+npm run dev
+Uygulama varsayılan olarak localhost üzerinde çalışır.
