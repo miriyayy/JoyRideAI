@@ -16,10 +16,10 @@
 
 Aşağıdaki görseller uygulamanın temel akışını temsil etmektedir:
 
-| 1. Yolculuk Planlama | 2. AI Rota Önerileri | 3. İnteraktif Harita | 4. Kullanıcı Profili |
+| 1. Yolculuk Planlama | 2. AI Rota Önerileri | 3. Kullanıcı Profili |
 |:---:|:---:|:---:|:---:|
 | ![Dashboard](./assets/screen_home.png) | ![AI Routes](./assets/screen_routes.png) | ![Profile](./assets/screen_profile.png) |
-| *Nereden-Nereye planlama ve anlık %92 yoğunluk uyarısı.* | *Yoğunluktan kaçış için AI destekli alternatifler.* | *Tüm İstanbul Raylı Sistem şemasına hızlı erişim.* | *Canlı konum ayarları ve kişiselleştirilmiş panel.* |
+| *Nereden-Nereye planlama ve anlık %92 yoğunluk uyarısı.* | *Yoğunluktan kaçış için AI destekli alternatifler.* | *Canlı konum ayarları ve kişiselleştirilmiş panel.* |
 
 ---
 
