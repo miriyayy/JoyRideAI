@@ -1,31 +1,37 @@
-
 import React from 'react';
-import { StyleSheet, View, Image, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-const MapScreen = () => {
+export default function MapScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView minimumZoomScale={1} maximumZoomScale={5}>
-        {/* İstanbul Raylı Sistemler Haritası (Resmi URL) */}
-        <Image 
-          source={{ uri: 'https://www.metro.istanbul/Content/assets/img/Haritalar/M2.jpg' }} 
-          // Not: Hackathon için M2 hattını koydum, tüm haritayı bulursan linki değiştirebilirsin.
-          // Alternatif (Tüm harita): 'https://data.ibb.gov.tr/dataset/rayli-sistemler-haritasi/resource/...' 
-          style={styles.mapImage}
-          resizeMode="contain"
-        />
-      </ScrollView>
+      <MapView
+        // Eğer Google Maps yüklü değilse varsayılan (Apple Maps/OSM) açılır
+        provider={PROVIDER_GOOGLE} 
+        style={styles.map}
+        // İstanbul koordinatları ile başlatıyoruz
+        initialRegion={{
+          latitude: 41.0082,
+          longitude: 28.9784,
+          latitudeDelta: 0.1, // Zoom seviyesi
+          longitudeDelta: 0.1,
+        }}
+        // Harita tipi: standart, satellite, hybrid
+        mapType="standard"
+      />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0f172a' },
-  mapImage: { 
-    width: Dimensions.get('window').width, 
+  container: {
+    flex: 1,
+    backgroundColor: '#0f172a',
+  },
+  map: {
+    width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    marginTop: 20
-  }
+    // flex: 1 de yazabilirsin ama Dimensions en garantisidir
+    flex: 1,
+  },
 });
-
-export default MapScreen;

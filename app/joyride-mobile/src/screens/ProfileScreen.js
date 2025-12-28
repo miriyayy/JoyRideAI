@@ -22,8 +22,8 @@ function ProfileScreen({ navigation }) {
       <TouchableOpacity 
     style={styles.menuItem}
     onPress={() => {
-        console.log("Butona basıldı!"); // Terminale yazar
-        alert("Buton Çalışıyor!");      // Ekrana uyarı verir
+        //console.log("Butona basıldı!"); // Terminale yazar
+        //alert("Buton Çalışıyor!");      // Ekrana uyarı verir
         navigation.navigate('Map');     // Sayfaya gitmeyi dener
     }} 
 >
