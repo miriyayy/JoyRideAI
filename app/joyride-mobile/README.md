@@ -17,7 +17,7 @@
 Aşağıdaki görseller uygulamanın temel akışını temsil etmektedir:
 
 | 1. Yolculuk Planlama | 2. AI Rota Önerileri | 3. Kullanıcı Profili |
-|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|
 | ![Dashboard](./assets/screen_home.png) | ![AI Routes](./assets/screen_routes.png) | ![Profile](./assets/screen_profile.png) |
 | *Nereden-Nereye planlama ve anlık %92 yoğunluk uyarısı.* | *Yoğunluktan kaçış için AI destekli alternatifler.* | *Canlı konum ayarları ve kişiselleştirilmiş panel.* |
 
