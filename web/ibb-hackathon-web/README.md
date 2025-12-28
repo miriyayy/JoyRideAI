@@ -66,7 +66,7 @@ Kritik yoğunluk algılandığında sistem şu aksiyonları önerir:
 
 | Web Operasyon Merkezi |
 | --- |
-| ![](assets/screen_web.png) |
+| ![Web Dashboard](./src/assets/screen_web.png) |
 | Gerçek zamanlı harita, saatlik tahminler ve AI optimizasyon paneli |
 
 ---
