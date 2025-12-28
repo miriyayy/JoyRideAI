@@ -1,12 +1,20 @@
-# Sanal ortamı yükleme
+# Sanal Ortamlar (Noktalı ve noktasız versiyonlar)
+.venv/
 venv/
-__pycache__/
+env/
 
-# Büyük veri ve model dosyalarını yükleme (Gerekirse sadece json'ı yükle)
-*.pkl
+# Node Modülleri (Her alt klasördeki node_modules'ü engeller)
+node_modules/
+**/node_modules/
+package-lock.json
+
+# Veri Dosyaları
 *.csv
-archive/
+*.xlsx
+*.pkl
 
-# Gereksiz sistem dosyaları
+# Gereksiz Sistem Dosyaları
+__pycache__/
+*.pyc
 .DS_Store
 .vscode/
