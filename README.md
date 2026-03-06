@@ -6,15 +6,6 @@
 ---
 
 
-
-# 🚀 JoyRideAI: Veri Odaklı ve Konforlu Akıllı Ulaşım Sistemi
-
-
-
-**JoyRideAI**, 32 saatlik yoğun bir hackathon sürecinde "İstanbul'un karmaşasına akıllı bir çözüm" mottosuyla geliştirildi.
-
-
-
 ## 🌟 Vizyonumuz: Hız Değil, Konfor ve Sürdürülebilirlik
 
 
@@ -160,6 +151,7 @@ Duraklar arasındaki gerçek mesafeleri (OSRM) kullanarak en mantıklı rotayı 
 
 
 **JoyRideAI** | *Tech Istanbul Hackathon 2025* - Yolculuğunu şansa değil, yapay zekaya bırak. 🚇✨
+
 
 
 
