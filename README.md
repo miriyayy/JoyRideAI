@@ -2,13 +2,6 @@
 
 **JoyRideAI**, 32 saatlik yoğun bir hackathon sürecinde *"İstanbul'un karmaşasına akıllı bir çözüm"* mottosuyla geliştirildi. Projemiz, İBB Açık Veri Portalı'ndan alınan gerçek verilerle beslenen uçtan uca bir ulaşım ekosistemidir.
 
-Harika bir bakış açısı. Sadece teknik bir çözüm değil, aynı zamanda **sürdürülebilirlik** ve **vatandaş memnuniyeti** odaklı bir hikaye oluşturmuşsunuz. Bu "insan odaklı" yaklaşım jüriyi her zaman daha fazla etkiler.
-
-
-
-Aşağıda, ana README dosyana bu vizyonu ve alt klasörlerdeki detaylı dökümanlara yönlendiren (linkli) yapıyı ekledim:
-
-
 
 ---
 
@@ -167,6 +160,7 @@ Duraklar arasındaki gerçek mesafeleri (OSRM) kullanarak en mantıklı rotayı 
 
 
 **JoyRideAI** | *Tech Istanbul Hackathon 2025* - Yolculuğunu şansa değil, yapay zekaya bırak. 🚇✨
+
 
 
 
